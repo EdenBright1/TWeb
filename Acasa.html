@@ -1,55 +1,111 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <title>Mystery Box - Acasă</title>
+  <meta charset="UTF-8">
+  <title>Mystery Box - Acasă</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
-    <h1>Mystery Box</h1>
-    <p>Surprize în fiecare cutie!</p>
+  <h1>Mystery Box</h1>
+  <p>Surprize în fiecare cutie!</p>
 
-    <nav>
-        <a href="index.html">Acasă</a> |
-        <a href="mystery-box.html">Cutii & Comandă</a>
-    </nav>
+  <nav>
+    <a href="Acasă.html">Acasă</a>
+    <a href="mystery-box.html">Cutii & Comandă</a>
+    <a href="despre.html">Despre</a>
+    <a href="intrebari.html">Întrebări</a>
+  </nav>
 </header>
 
-<hr>
-
 <section>
-    <h2>Ce este Mystery Box?</h2>
-    <p>
-        Mystery Box este o cutie surpriză. Alegi categoria și bugetul,
-        iar noi îți pregătim o experiență misterioasă.
-    </p>
+  <h2>Ce este Mystery Box?</h2>
+  <p>
+    Mystery Box este un cadou-surpriză: alegi un buget și un stil, iar în interior primești o selecție
+    de produse pe care nu o cunoști dinainte. Surpriza este partea principală.
+  </p>
+  <p style="color:#cbd5e1;">
+    Dacă vrei să alegi o cutie și să trimiți o comandă, mergi la pagina Cutii & Comandă.
+  </p>
+
+  <div class="heroButtons">
+    <a class="btnPrimary" href="mystery-box.html">Mergi la Cutii & Comandă</a>
+    <a class="btnGhost" href="intrebari.html">Întrebări frecvente</a>
+  </div>
 </section>
 
-<hr>
-
 <section>
-    <h2>Categorii disponibile</h2>
+  <h2>Experiența surprizei</h2>
 
-    <h3>🎮 Gaming</h3>
-    <p>Accesorii și surprize pentru gameri.</p>
+  <div class="hero" style="grid-template-columns: 1fr 1fr;">
+    <div class="heroImg">
+      <img src="images/gift-gold.png" alt="Cadou surpriză">
+    </div>
 
-    <h3>💄 Beauty</h3>
-    <p>Produse cosmetice și îngrijire.</p>
+    <div class="heroText">
+      <h2>De ce e interesant?</h2>
 
-    <h3>📱 Gadget</h3>
-    <p>Accesorii utile pentru telefon și laptop.</p>
+      <p>
+        Pentru că nu primești aceeași cutie ca toți. Conținutul este ales în funcție de categoria selectată,
+        iar combinațiile pot fi diferite de fiecare dată.
+      </p>
 
-    <h3>🍫 Snack</h3>
-    <p>Dulciuri și gustări surpriză.</p>
+      <p>
+        În interior se pot regăsi produse uzuale, produse mai rare sau un bonus. Tocmai această incertitudine
+        creează curiozitate și face experiența mai distractivă.
+      </p>
 
-    <p>
-        <a href="mystery-box.html">Vezi detalii și comandă →</a>
-    </p>
+      <p style="color:#cbd5e1;">
+        Poți alege cutia potrivită pentru un cadou rapid sau pentru o surpriză mai specială.
+      </p>
+    </div>
+  </div>
 </section>
 
-<hr>
+<section>
+  <h2>Reguli și informații</h2>
+
+  <div class="cards" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="card">
+      <h3>📌 Conținut variabil</h3>
+      <p>Fiecare cutie poate conține produse diferite, în funcție de categorie și buget.</p>
+    </div>
+
+    <div class="card">
+      <h3>💳 Bugete diferite</h3>
+      <p>Există mai multe niveluri, de la basic până la premium.</p>
+    </div>
+
+    <div class="card">
+      <h3>📦 Livrare</h3>
+      <p>Comanda este pregătită și livrată în termen scurt.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Pașii principali</h2>
+
+  <ol style="line-height:1.8; color:#e2e8f0;">
+    <li>Intri pe pagina Cutii & Comandă.</li>
+    <li>Alegi tipul de cutie care ți se potrivește.</li>
+    <li>Completezi formularul și trimiți comanda.</li>
+    <li>Primești cutia și descoperi surpriza.</li>
+  </ol>
+</section>
+
+<section style="text-align:center;">
+  <h2>Gata să alegi?</h2>
+  <p style="color:#cbd5e1; max-width:720px; margin: 0 auto;">
+    Intră pe pagina Cutii & Comandă pentru a vedea opțiunile și a trimite o comandă.
+  </p>
+
+  <div class="heroButtons" style="justify-content:center;">
+    <a class="btnPrimary" href="mystery-box.html">Deschide Cutii & Comandă</a>
+  </div>
+</section>
+
 
 </body>
 </html>
