@@ -1,0 +1,339 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #1e293b, #0f172a);
+  color:#fff;
+}
+
+/* Header + meniu */
+header{
+  background: rgba(30,41,59,0.86);
+  padding: 18px;
+  text-align:center;
+  border-bottom: 1px solid #334155;
+  position: sticky;
+  top:0;
+  z-index: 10;
+}
+
+header h1{
+  margin: 0 0 6px 0;
+}
+
+header p{
+  margin: 0 0 10px 0;
+  color:#cbd5e1;
+}
+
+nav a{
+  color:#38bdf8;
+  text-decoration:none;
+  margin: 0 12px;
+  font-weight:bold;
+}
+
+nav a:hover{
+  color:#facc15;
+}
+
+/* Layout general */
+section{
+  padding: 22px;
+  margin: 20px;
+  background: rgba(30,41,59,0.70);
+  border-radius: 16px;
+  border: 1px solid #334155;
+}
+
+/* HERO */
+.hero{
+  display:grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 18px;
+  padding: 30px;
+  margin: 20px;
+  background: rgba(30,41,59,0.70);
+  border-radius: 16px;
+  border: 1px solid #334155;
+}
+
+.heroText h2{
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 32px;
+}
+
+.heroText p{
+  color:#cbd5e1;
+  line-height: 1.6;
+  margin-top: 0;
+}
+
+.heroButtons a{
+  display:inline-block;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.btnPrimary{
+  background:#38bdf8;
+  color:#0f172a;
+}
+
+.btnPrimary:hover{
+  background:#facc15;
+  color:#0f172a;
+}
+
+.btnGhost{
+  border:1px solid #38bdf8;
+  color:#38bdf8;
+}
+
+.btnGhost:hover{
+  border-color:#facc15;
+  color:#facc15;
+}
+
+.heroImg{
+  border-radius: 16px;
+  border: 1px solid #334155;
+  overflow:hidden;
+  background:#0b1220;
+  min-height: 260px;
+}
+
+.heroImg img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* CARDS (De ce Mystery Box) */
+.cards{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.card{
+  background: rgba(15,23,42,0.55);
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.card h3{
+  margin: 8px 0;
+}
+
+.card p{
+  margin: 0;
+  color:#cbd5e1;
+}
+
+/* =========================
+   BOXURI (premium cards)
+   ========================= */
+
+.boxGrid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 14px;
+}
+
+.boxCard{
+  background: rgba(15,23,42,0.55);
+  border: 1px solid #334155;
+  border-radius: 18px;
+  overflow:hidden;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+  transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
+}
+
+.boxCard:hover{
+  transform: translateY(-4px);
+  border-color: rgba(56,189,248,0.9);
+  box-shadow: 0 22px 60px rgba(0,0,0,0.45);
+}
+
+/* zona imagine */
+.boxMedia{
+  position: relative;
+  height: 260px;          /* mai mare ca să se vadă bine */
+  overflow: hidden;
+  background:#0b1220;
+}
+
+.boxMedia img{
+  width: 100%;
+  height: 100%;
+  display:block;
+  object-fit: cover;      /* umple frumos */
+  object-position: center;
+  transform: none;
+  filter: none;
+}
+
+/* overlay subtil jos pentru text */
+.boxGlow{
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(15,23,42,0.85) 100%);
+  pointer-events:none;
+}
+
+/* badge + semn ? */
+.boxBadge{
+  position:absolute;
+  top: 12px;
+  left: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  color:#e2e8f0;
+  background: rgba(56,189,248,0.20);
+  border: 1px solid rgba(56,189,248,0.45);
+  backdrop-filter: blur(6px);
+}
+
+.boxQuestion{
+  position:absolute;
+  right: 12px;
+  top: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display:grid;
+  place-items:center;
+  font-weight: 900;
+  color:#facc15;
+  background: rgba(250,204,21,0.16);
+  border: 1px solid rgba(250,204,21,0.35);
+}
+
+/* textul de sub imagine */
+.boxBody{
+  padding: 16px;
+}
+
+.boxTitle{
+  margin: 0;
+  font-size: 20px;
+}
+
+.boxPrice{
+  margin: 8px 0 10px 0;
+  color:#38bdf8;
+  font-weight: 900;
+}
+
+.boxHint{
+  margin: 0;
+  color:#cbd5e1;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.boxMetaRow{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.pill{
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  border: 1px solid #334155;
+  background: rgba(2,6,23,0.35);
+  color:#cbd5e1;
+}
+
+/* =========================
+   Tabel
+   ========================= */
+table{
+  width:100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table, th, td{
+  border: 1px solid #334155;
+}
+
+th, td{
+  padding: 12px;
+  text-align:center;
+}
+
+th{
+  background: rgba(56,189,248,0.10);
+}
+
+/* =========================
+   Formular
+   ========================= */
+input, select, textarea{
+  width:100%;
+  max-width: 420px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  background:#0f172a;
+  color:#fff;
+}
+
+button{
+  padding: 11px 16px;
+  background:#38bdf8;
+  border:none;
+  border-radius: 10px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+button:hover{
+  background:#facc15;
+  color:#0f172a;
+}
+
+/* Footer */
+footer{
+  text-align:center;
+  padding: 16px;
+  background: rgba(30,41,59,0.86);
+  border-top: 1px solid #334155;
+  margin-top: 20px;
+  color:#cbd5e1;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .hero{
+    grid-template-columns: 1fr;
+  }
+
+  .cards{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .boxGrid{
+    grid-template-columns: 1fr;
+  }
+}
