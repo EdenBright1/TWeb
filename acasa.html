@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mystery Box — Acasă</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span class="brand-name">Mystery Box</span>
+    <div class="brand-dot"></div>
+  </div>
+  <nav>
+    <a href="acasa.html" class="active">Acasă</a>
+    <a href="cutii.html">Cutii</a>
+    <a href="despre.html">Despre</a>
+    <a href="intrebari.html">FAQ</a>
+  </nav>
+</header>
+
+<div class="hero-home">
+  <div class="hero-text reveal">
+    <div class="overline">Colecția 2025</div>
+    <h1 class="hero-title">
+      O cutie.<br>
+      <span class="accent">O surpriză.</span>
+      Toată.
+    </h1>
+    <p class="hero-body">
+      Nu știi ce primești până nu deschizi. Alegi bugetul și categoria —
+      noi curatăm restul. Asta e toată ideea.
+    </p>
+    <div class="btn-row">
+      <a class="btn-main" href="cutii.html">Comandă acum</a>
+      <button class="btn-text" onclick="window.location='intrebari.html'">Cum funcționează</button>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-img-main">
+      <img src="photo_1.jpg" alt="Mystery Box">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="tier-cards reveal" style="transition-delay:.2s">
+      <div class="tier-card">
+        <div class="tier-num">I</div>
+        <div class="tier-info">
+          <div class="tier-label">Basic</div>
+          <div class="tier-name">Basic Box</div>
+        </div>
+        <div class="tier-price">149 MDL</div>
+      </div>
+      <div class="tier-card featured">
+        <div class="tier-num">II</div>
+        <div class="tier-info">
+          <div class="tier-label">Popular</div>
+          <div class="tier-name">Standard Box</div>
+        </div>
+        <div class="tier-price">299 MDL</div>
+      </div>
+      <div class="tier-card">
+        <div class="tier-num">III</div>
+        <div class="tier-info">
+          <div class="tier-label">Premium</div>
+          <div class="tier-name">Premium Box</div>
+        </div>
+        <div class="tier-price">499 MDL</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-head reveal">
+    <span class="sec-label">De ce Mystery Box?</span>
+    <h2 class="sec-title">O experiență, nu doar <em>un produs</em></h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="feature-grid">
+    <div class="feature-card reveal">
+      <span class="feature-icon">🎁</span>
+      <h3>Cadou rapid</h3>
+      <p>Perfect când nu știi ce să alegi. Funcționează întotdeauna.</p>
+    </div>
+    <div class="feature-card reveal" style="transition-delay:.08s">
+      <span class="feature-icon">✨</span>
+      <h3>Surpriză autentică</h3>
+      <p>Conținut diferit la fiecare comandă — nicio cutie nu se repetă.</p>
+    </div>
+    <div class="feature-card reveal" style="transition-delay:.16s">
+      <span class="feature-icon">💸</span>
+      <h3>Bugete flexibile</h3>
+      <p>Basic, Standard sau Premium — alegi ce se potrivește.</p>
+    </div>
+    <div class="feature-card reveal" style="transition-delay:.24s">
+      <span class="feature-icon">📦</span>
+      <h3>Livrare rapidă</h3>
+      <p>Comanda ajunge la tine în 1–3 zile lucrătoare.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="section-head reveal">
+    <span class="sec-label">Procesul</span>
+    <h2 class="sec-title">Cum <em>funcționează</em></h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="steps reveal">
+    <div class="step">
+      <div class="step-n">01</div>
+      <div class="step-body">
+        <h4>Alegi cutia</h4>
+        <p>Mergi la pagina Cutii și selectezi categoria și bugetul dorit.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">02</div>
+      <div class="step-body">
+        <h4>Completezi comanda</h4>
+        <p>Introduci datele de livrare și metoda de plată preferată.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">03</div>
+      <div class="step-body">
+        <h4>Primești &amp; deschizi</h4>
+        <p>Cutia ajunge sigilată. Surpriza se dezvăluie la deschidere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band reveal">
+  <h2>Gata să alegi <em>cutia ta</em>?</h2>
+  <p>Explorează colecția completă și plasează o comandă în câteva minute.</p>
+  <div class="btn-row" style="justify-content:center">
+    <a class="btn-main" href="cutii.html">Deschide Cutii &amp; Comandă →</a>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-brand">Mystery Box</span>
+  <span class="footer-note">© 2025 — Toate drepturile rezervate</span>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const obs = new IntersectionObserver(
+    entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: .1 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
