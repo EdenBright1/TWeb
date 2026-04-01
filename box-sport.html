@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mystery Box — Categorie</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Hero image transition */
+    .box-detail-img img {
+      transition: opacity .45s ease, transform 6s ease;
+    }
+    .box-detail-img img.fade-out {
+      opacity: 0;
+    }
+
+    /* Category card with object image */
+    .cat-card-obj {
+      position: relative; border-radius: 12px; overflow: hidden;
+      background: var(--ink2); border: 1px solid var(--border);
+      cursor: pointer; display: block; color: inherit;
+      transition: border-color .3s, transform .3s, box-shadow .3s;
+    }
+    .cat-card-obj:hover {
+      border-color: rgba(255,92,26,.4); transform: translateY(-6px);
+      box-shadow: 0 28px 70px rgba(0,0,0,.5);
+    }
+    .cat-card-obj .obj-img-wrap {
+      height: 200px; overflow: hidden; position: relative;
+      background: linear-gradient(135deg, #1a1510 0%, #0c0b09 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cat-card-obj .obj-emoji {
+      font-size: 5rem; filter: drop-shadow(0 0 30px rgba(255,92,26,.3));
+      transition: transform .4s ease;
+    }
+    .cat-card-obj:hover .obj-emoji { transform: scale(1.15) rotate(-5deg); }
+    .cat-card-obj .obj-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(12,11,9,.85) 100%);
+    }
+    .cat-card-obj .obj-badge {
+      position: absolute; top: 12px; left: 12px;
+      font-size: .56rem; font-weight: 700; letter-spacing: .24em; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 999px;
+      background: rgba(12,11,9,.75); border: 1px solid rgba(255,255,255,.1);
+      color: var(--muted); backdrop-filter: blur(8px);
+    }
+    .cat-card-obj .obj-body { padding: 16px 18px 20px; }
+    .cat-card-obj .obj-name { font-family: 'Fraunces',serif; font-size: 1.2rem; font-weight: 300; color: var(--cream); margin-bottom: 4px; }
+    .cat-card-obj .obj-price { font-size: 1rem; font-weight: 600; color: var(--ember); margin-bottom: 8px; }
+    .cat-card-obj .obj-desc { font-size: .78rem; font-weight: 300; color: var(--muted); line-height: 1.55; margin-bottom: 12px; }
+    .cat-card-obj .obj-cta { font-size: .6rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--ember); display: flex; align-items: center; gap: 5px; opacity: 0; transition: opacity .2s; }
+    .cat-card-obj:hover .obj-cta { opacity: 1; }
+    .cat-card-obj .obj-cta::after { content: '→'; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span class="brand-name">Mystery Box</span>
+    <div class="brand-dot"></div>
+  </div>
+  <nav>
+    <a href="acasa.html">Acasă</a>
+    <a href="cutii.html">Cutii</a>
+    <a href="despre.html">Despre</a>
+    <a href="intrebari.html">FAQ</a>
+  </nav>
+</header>
+
+<div id="pageRoot"></div>
+
+<footer>
+  <span class="footer-brand">Mystery Box</span>
+  <span class="footer-note">© 2025 — Toate drepturile rezervate</span>
+</footer>
+
+<script src="boxes-data.js"></script>
+<script>
+// ── Determine category from filename
+const filename = location.pathname.split('/').pop().replace('box-','').replace('.html','');
+const cat = BOXES_DATA[filename] || BOXES_DATA['gaming'];
+document.title = `Mystery Box — ${cat.name} Box`;
+
+const RARITY_LABELS = { common:'Common', rare:'Rare', epic:'Epic', legend:'Legendary' };
+const TIER_KEYS = ['basic','standard','premium'];
+let activeTier = 'basic';
+
+// Category display emojis for "Alte categorii"
+const CAT_EMOJIS = {
+  gaming:  { big: '🎮', items: ['🖱️','⌨️','🎧','💡','🏆'] },
+  beauty:  { big: '💄', items: ['✨','🌸','🧴','💋','💆'] },
+  gadget:  { big: '📱', items: ['🔋','🎵','🤖','📸','🔌'] },
+  snack:   { big: '🍫', items: ['☕','🍬','🌶️','🫖','🌟'] },
+  sport:   { big: '🏋️', items: ['💪','⚡','🏆','⌚','🎽'] },
+};
+
+// ── Build items HTML for a given tier
+function buildItemsHTML(tierKey) {
+  const tier = cat.tiers[tierKey];
+  return tier.items.map(item => `
+    <div class="item-card reveal">
+      <div class="item-emoji">${item.emoji}</div>
+      <div class="item-info">
+        <div class="item-header">
+          <div class="item-name">${item.name}</div>
+          <span class="rarity-badge rarity-${item.rarity}">${RARITY_LABELS[item.rarity]}</span>
+        </div>
+        <div class="item-desc">${item.desc}</div>
+        <div class="chance-label">Șansă de apariție</div>
+        <div class="chance-wrap">
+          <div class="chance-bar-bg">
+            <div class="chance-bar-fill" data-pct="${item.chance}" style="width:0"></div>
+          </div>
+          <div class="chance-pct">${item.chance}%</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ── Build tabs HTML
+function buildTabsHTML() {
+  return TIER_KEYS.map((key, i) => {
+    const t = cat.tiers[key];
+    return `<button class="cat-tab ${i===0?'active':''}" data-tier="${key}">${key.charAt(0).toUpperCase()+key.slice(1)} — ${t.price}</button>`;
+  }).join('');
+}
+
+// ── Build panels HTML (empty containers, filled by JS)
+function buildPanelsHTML() {
+  return TIER_KEYS.map((key, i) => `
+    <div class="cat-panel ${i===0?'active':''}" id="panel-${key}">
+      <div class="items-grid" id="grid-${key}">
+        ${buildItemsHTML(key)}
+      </div>
+      <p style="font-size:.78rem;font-weight:300;color:var(--muted);margin-top:20px;line-height:1.7">
+        ℹ️ Fiecare comandă conține <strong style="color:var(--cream)">${cat.tiers[key].products}</strong> din lista de mai sus —
+        selectate aleatoriu pe baza procentajelor. Produsele cu șansă mică (sub 15%) apar doar în boxuri norocoase.
+      </p>
+    </div>
+  `).join('');
+}
+
+// ── Build "Alte categorii" with emoji objects
+function buildOtherCatsHTML() {
+  return Object.entries(BOXES_DATA)
+    .filter(([key]) => key !== filename)
+    .slice(0, 3)
+    .map(([key, d], i) => {
+      const em = CAT_EMOJIS[key] || { big: d.emoji, items: [] };
+      return `
+        <a class="cat-card-obj reveal" href="box-${key}.html" style="transition-delay:${i*.1}s">
+          <div class="obj-img-wrap">
+            <div class="obj-emoji">${em.big}</div>
+            <div class="obj-overlay"></div>
+          </div>
+          <div class="obj-badge">${d.emoji} ${d.name}</div>
+          <div class="obj-body">
+            <div class="obj-name">${d.name} Box</div>
+            <div class="obj-price">${d.tiers.basic.price} <span style="font-size:.72rem;font-weight:300;color:var(--muted)">— ${d.tiers.premium.price}</span></div>
+            <div class="obj-desc">${d.desc.slice(0,80)}…</div>
+            <div class="obj-cta">Vezi conținut</div>
+          </div>
+        </a>
+      `;
+    }).join('');
+}
+
+// ── Tier price buttons HTML
+function buildTierBtnsHTML() {
+  return TIER_KEYS.map((key, i) => {
+    const t = cat.tiers[key];
+    return `
+      <button class="tier-btn ${i===0?'active':''}" data-tier="${key}">
+        <div style="font-size:.58rem;letter-spacing:.16em;margin-bottom:3px;opacity:.7">${key.toUpperCase()}</div>
+        <div style="font-size:1.05rem;font-weight:700">${t.price}</div>
+      </button>
+    `;
+  }).join('');
+}
+
+// ── Inject full page
+document.getElementById('pageRoot').innerHTML = `
+  <div class="box-detail-hero">
+    <div class="box-detail-img" id="heroImgWrap">
+      <img id="heroImg" src="${cat.tiers.basic.tierImages || cat.tierImages.basic}" alt="${cat.name} Box">
+      <div class="box-detail-img-overlay"></div>
+      <div class="box-detail-badge">${cat.emoji} ${cat.name} Box</div>
+    </div>
+    <div class="box-detail-text">
+      <div class="overline">${cat.emoji} Categoria ${cat.name}</div>
+      <h1 class="box-detail-title">${cat.name}<br><em>Mystery Box</em></h1>
+      <p class="box-detail-price-note">${cat.desc}</p>
+      <div class="box-detail-pills" id="heroPills">
+        <span class="pill r">${cat.tiers.basic.items.length}+ produse posibile</span>
+        <span class="pill">3 niveluri</span>
+        <span class="pill">Livrare 1–3 zile</span>
+      </div>
+      <div class="tier-selector" id="tierSelector">
+        ${buildTierBtnsHTML()}
+      </div>
+      <div class="btn-row">
+        <a class="btn-main" href="cutii.html#comanda">Comandă acum →</a>
+        <a class="btn-text" href="cutii.html">Toate cutiile</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section-head reveal">
+      <span class="sec-label">Conținut posibil</span>
+      <h2 class="sec-title">Ce poate conține <em>${cat.name} Box</em></h2>
+      <div class="sec-line"></div>
+      <p style="color:var(--muted);font-size:.82rem;font-weight:300;margin-top:12px;line-height:1.7;max-width:560px">
+        Alege nivelul pentru a vedea ce produse specifice poate conține acel box.
+        Cu cât boxul este mai scump, cu atât produsele sunt mai valoroase și mai rare.
+      </p>
+    </div>
+    <div class="cat-tabs" id="catTabs">${buildTabsHTML()}</div>
+    ${buildPanelsHTML()}
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="section-head reveal">
+      <span class="sec-label">Explorează</span>
+      <h2 class="sec-title">Alte <em>categorii</em></h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="box-grid">${buildOtherCatsHTML()}</div>
+  </section>
+
+  <div class="cta-band reveal">
+    <h2>Gata să alegi <em>${cat.name} Box</em>?</h2>
+    <p>Plasează comanda acum și primești surpriza în 1–3 zile lucrătoare.</p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn-main" href="cutii.html#comanda">Comandă acum →</a>
+    </div>
+  </div>
+`;
+
+// ── Reveal observer
+const obs = new IntersectionObserver(
+  e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }),
+  { threshold: .08 }
+);
+function reObserve() {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => obs.observe(el));
+}
+reObserve();
+
+// ── Animate chance bars when visible
+const barObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.width = entry.target.dataset.pct + '%';
+      barObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: .1 });
+
+function observeBars() {
+  document.querySelectorAll('.chance-bar-fill').forEach(bar => barObs.observe(bar));
+}
+setTimeout(observeBars, 150);
+
+// ── Switch tier: image + tabs + panels
+function switchTier(tier) {
+  if (activeTier === tier) return;
+  activeTier = tier;
+
+  // 1. Change hero image with fade
+  const img = document.getElementById('heroImg');
+  img.classList.add('fade-out');
+  setTimeout(() => {
+    img.src = cat.tierImages[tier];
+    img.classList.remove('fade-out');
+  }, 350);
+
+  // 2. Sync tier buttons
+  document.querySelectorAll('.tier-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.tier === tier)
+  );
+
+  // 3. Sync tabs
+  document.querySelectorAll('.cat-tab').forEach(b =>
+    b.classList.toggle('active', b.dataset.tier === tier)
+  );
+
+  // 4. Switch panel
+  document.querySelectorAll('.cat-panel').forEach(p => p.classList.remove('active'));
+  const panel = document.getElementById('panel-' + tier);
+  panel.classList.add('active');
+
+  // 5. Re-animate bars in new panel
+  setTimeout(() => {
+    panel.querySelectorAll('.chance-bar-fill').forEach(bar => {
+      bar.style.width = '0';
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        bar.style.width = bar.dataset.pct + '%';
+      }));
+    });
+    reObserve();
+  }, 60);
+}
+
+// ── Event listeners for tier buttons
+document.getElementById('tierSelector').addEventListener('click', e => {
+  const btn = e.target.closest('.tier-btn');
+  if (btn) switchTier(btn.dataset.tier);
+});
+
+document.getElementById('catTabs').addEventListener('click', e => {
+  const btn = e.target.closest('.cat-tab');
+  if (btn) switchTier(btn.dataset.tier);
+});
+</script>
+</body>
+</html>
