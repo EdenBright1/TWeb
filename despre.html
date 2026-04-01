@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Despre — Mystery Box</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span class="brand-name">Mystery Box</span>
+    <div class="brand-dot"></div>
+  </div>
+  <nav>
+    <a href="acasa.html">Acasă</a>
+    <a href="cutii.html">Cutii</a>
+    <a href="despre.html" class="active">Despre</a>
+    <a href="intrebari.html">FAQ</a>
+  </nav>
+</header>
+
+<section class="section">
+  <div class="section-head reveal">
+    <span class="sec-label">Povestea noastră</span>
+    <h2 class="sec-title">Cine <em>suntem</em></h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="about-grid reveal">
+    <div class="about-img">
+      <img src="photo_2.jpg" alt="Mystery Box">
+    </div>
+    <div>
+      <h3 style="font-family:'Fraunces',serif;font-size:1.8rem;font-weight:300;color:var(--cream);margin-bottom:18px;line-height:1.2">
+        Conceptul <em style="font-style:italic;color:var(--ember)">surprizei</em>
+      </h3>
+      <p style="font-size:.9rem;font-weight:300;color:var(--muted);line-height:1.85;margin-bottom:16px">
+        Mystery Box este un proiect bazat pe ideea că uneori cea mai bună alegere
+        este să nu alegi deloc. Tu selectezi o categorie și un buget — noi curatăm
+        conținutul. Surpriza este livrată sigilată.
+      </p>
+      <p style="font-size:.9rem;font-weight:300;color:var(--muted);line-height:1.85">
+        Fiecare comandă este unică. Combinațiile de produse variază, iar
+        probabilitatea de a primi produse rare crește odată cu nivelul ales.
+        Acum poți vedea exact ce șanse ai — transparent și onest.
+      </p>
+      <ul class="about-list">
+        <li>Experiență de tip surpriză autentică</li>
+        <li>5 categorii și 3 niveluri de preț</li>
+        <li>Posibilitatea de a primi produse rare și legendare</li>
+        <li>Procentaje de apariție vizibile pentru fiecare produs</li>
+        <li>Concept simplu, execuție îngrijită</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="section-head reveal">
+    <span class="sec-label">Principii</span>
+    <h2 class="sec-title">Ce <em>ghidează</em> proiectul</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="feature-grid">
+    <div class="feature-card reveal">
+      <span class="feature-icon">🔒</span>
+      <h3>Mister real</h3>
+      <p>Conținutul rămâne necunoscut până la deschidere — fără spoilere, fără previzualizare a ce primești exact.</p>
+    </div>
+    <div class="feature-card reveal" style="transition-delay:.1s">
+      <span class="feature-icon">⚖️</span>
+      <h3>Valoare corectă</h3>
+      <p>Valoarea produselor din interior depășește întotdeauna prețul cutiei. Garantat.</p>
+    </div>
+    <div class="feature-card reveal" style="transition-delay:.2s">
+      <span class="feature-icon">🎯</span>
+      <h3>Curare atentă</h3>
+      <p>Produsele sunt selectate în funcție de categorie, nu alese aleatoriu — calitate mereu prioritară.</p>
+    </div>
+    <div class="feature-card reveal" style="transition-delay:.3s">
+      <span class="feature-icon">📊</span>
+      <h3>Transparență totală</h3>
+      <p>Poți vedea exact ce produse pot fi în box și care sunt șansele — procentaj afișat clar.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band reveal">
+  <h2>Vrei să <em>încerci</em>?</h2>
+  <p>Explorează colecția și plasează prima ta comandă.</p>
+  <div class="btn-row" style="justify-content:center">
+    <a class="btn-main" href="cutii.html">Mergi la Cutii →</a>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-brand">Mystery Box</span>
+  <span class="footer-note">© 2025 — Toate drepturile rezervate</span>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(
+    e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }),
+    { threshold: .1 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
