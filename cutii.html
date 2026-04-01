@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mystery Box — Cutii & Comandă</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+  
+    .hero-img-main img { transition: opacity .4s ease, transform 6s ease; }
+    .hero-img-main img.fade-out { opacity: 0 !important; }
+
+    /* Tier card clickable + active state */
+    .tier-card { cursor: pointer; }
+    .tier-card.selected { border-color: rgba(255,92,26,.6) !important; background: rgba(255,92,26,.12) !important; }
+    .tier-card.selected .tier-num { color: var(--ember) !important; }
+    .tier-card.selected .tier-price { color: var(--ember) !important; }
+
+    .box-card.cat-obj-card .box-img {
+      background: linear-gradient(135deg, #1a1510 0%, #0c0b09 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .box-card.cat-obj-card .box-img .cat-big-emoji {
+      font-size: 6rem;
+      filter: drop-shadow(0 0 30px rgba(255,92,26,.25));
+      transition: transform .4s ease;
+      position: relative; z-index: 2;
+    }
+    .box-card.cat-obj-card:hover .cat-big-emoji { transform: scale(1.12) rotate(-5deg); }
+    .box-card.cat-obj-card .box-img img { display: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span class="brand-name">Mystery Box</span>
+    <div class="brand-dot"></div>
+  </div>
+  <nav>
+    <a href="acasa.html">Acasă</a>
+    <a href="cutii.html" class="active">Cutii</a>
+    <a href="despre.html">Despre</a>
+    <a href="intrebari.html">FAQ</a>
+  </nav>
+</header>
+
+<!-- HERO SHOP -->
+<div class="hero-shop">
+  <div class="hero-text reveal">
+    <div class="overline">Colecția curentă</div>
+    <h1 class="hero-title" style="font-size:clamp(2.8rem,5vw,4.6rem)">
+      Alege cutia.<br>
+      <span class="accent">Primește surpriza.</span>
+    </h1>
+    <p class="hero-body">
+      Fiecare box conține o selecție curată de produse în funcție de categoria aleasă.
+      Apasă pe o cutie pentru a vedea ce poate conține.
+    </p>
+    <div class="btn-row">
+      <a class="btn-main" href="#cutii">Vezi cutiile ↓</a>
+      <button class="btn-text" onclick="document.getElementById('comanda').scrollIntoView({behavior:'smooth'})">Comandă direct</button>
+    </div>
+  </div>
+
+  <div class="hero-visual" id="heroVisual">
+    <div class="hero-img-main">
+      <img id="heroMainImg" src="photo_2.jpg" alt="Mystery Box">
+    </div>
+    <div class="hero-overlay"></div>
+    <!-- Tier cards — clicking changes image and info -->
+    <div class="tier-cards" id="tierCards">
+      <div class="tier-card selected" data-tier="basic" data-img="photo_2.jpg">
+        <div class="tier-num">I</div>
+        <div class="tier-info">
+          <div class="tier-label">Basic</div>
+          <div class="tier-name">Basic Box</div>
+        </div>
+        <div class="tier-price">149 MDL</div>
+      </div>
+      <div class="tier-card featured" data-tier="standard" data-img="photo_3.jpg">
+        <div class="tier-num">II</div>
+        <div class="tier-info">
+          <div class="tier-label">★ Popular</div>
+          <div class="tier-name">Standard Box</div>
+        </div>
+        <div class="tier-price">299 MDL</div>
+      </div>
+      <div class="tier-card" data-tier="premium" data-img="photo_4.jpg">
+        <div class="tier-num">III</div>
+        <div class="tier-info">
+          <div class="tier-label">Premium</div>
+          <div class="tier-name">Premium Box</div>
+        </div>
+        <div class="tier-price">499 MDL</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Category bar -->
+<div class="cat-bar">
+  <div class="cat-cell" onclick="window.location='box-gaming.html'">
+    <div class="cat-name">🎮 Gaming</div>
+    <div class="cat-price">199+</div>
+  </div>
+  <div class="cat-cell" onclick="window.location='box-beauty.html'">
+    <div class="cat-name">💄 Beauty</div>
+    <div class="cat-price">199+</div>
+  </div>
+  <div class="cat-cell" onclick="window.location='box-gadget.html'">
+    <div class="cat-name">📱 Gadget</div>
+    <div class="cat-price">199+</div>
+  </div>
+  <div class="cat-cell" onclick="window.location='box-snack.html'">
+    <div class="cat-name">🍫 Snack</div>
+    <div class="cat-price">149+</div>
+  </div>
+  <div class="cat-cell" onclick="window.location='box-sport.html'">
+    <div class="cat-name">🏋️ Sport</div>
+    <div class="cat-price">199+</div>
+  </div>
+</div>
+
+<section class="section" id="cutii">
+  <div class="section-head reveal">
+    <span class="sec-label">Categorii</span>
+    <h2 class="sec-title">Alege <em>categoria</em></h2>
+    <div class="sec-line"></div>
+    <p style="color:var(--muted);font-size:.82rem;font-weight:300;margin-top:12px;line-height:1.7">
+      Apasă pe orice categorie pentru a vedea produsele posibile și șansele de câștig.
+    </p>
+  </div>
+
+  <div class="box-grid">
+    <!-- Gaming Box -->
+    <a class="box-card cat-obj-card tier-standard reveal" href="box-gaming.html">
+      <div class="box-img">
+        <div class="cat-big-emoji">🎮</div>
+        <div class="box-img-overlay"></div>
+        <div class="box-badge">Gaming</div>
+        <div class="box-q">?</div>
+      </div>
+      <div class="box-body">
+        <div class="box-name">Gaming Box</div>
+        <div class="box-price">199 MDL <span>— 499 MDL</span></div>
+        <p class="box-hint">Accesorii gaming, merchandise și colecții exclusive din lumea jocurilor video.</p>
+        <div class="box-pills">
+          <span class="pill r">Common → Epic</span>
+          <span class="pill">3 niveluri</span>
+        </div>
+        <div class="box-click-hint">Vezi conținut</div>
+      </div>
+    </a>
+
+    <!-- Beauty Box -->
+    <a class="box-card cat-obj-card tier-standard reveal" href="box-beauty.html" style="transition-delay:.07s">
+      <div class="box-img">
+        <div class="cat-big-emoji">💄</div>
+        <div class="box-img-overlay"></div>
+        <div class="box-badge">Beauty</div>
+        <div class="box-q">?</div>
+      </div>
+      <div class="box-body">
+        <div class="box-name">Beauty Box</div>
+        <div class="box-price">199 MDL <span>— 499 MDL</span></div>
+        <p class="box-hint">Cosmetice premium, skincare și parfumuri din branduri internaționale.</p>
+        <div class="box-pills">
+          <span class="pill r">Common → Legend</span>
+          <span class="pill">3 niveluri</span>
+        </div>
+        <div class="box-click-hint">Vezi conținut</div>
+      </div>
+    </a>
+
+    <!-- Gadget Box -->
+    <a class="box-card cat-obj-card tier-standard reveal" href="box-gadget.html" style="transition-delay:.14s">
+      <div class="box-img">
+        <div class="cat-big-emoji">📱</div>
+        <div class="box-img-overlay"></div>
+        <div class="box-badge">Gadget</div>
+        <div class="box-q">?</div>
+      </div>
+      <div class="box-body">
+        <div class="box-name">Gadget Box</div>
+        <div class="box-price">199 MDL <span>— 499 MDL</span></div>
+        <p class="box-hint">Tech și gadgeturi smart de ultimă generație pentru viața de zi cu zi.</p>
+        <div class="box-pills">
+          <span class="pill r">Common → Legend</span>
+          <span class="pill">3 niveluri</span>
+        </div>
+        <div class="box-click-hint">Vezi conținut</div>
+      </div>
+    </a>
+
+    <!-- Snack Box -->
+    <a class="box-card cat-obj-card tier-basic reveal" href="box-snack.html" style="transition-delay:.21s">
+      <div class="box-img">
+        <div class="cat-big-emoji">🍫</div>
+        <div class="box-img-overlay"></div>
+        <div class="box-badge">Snack</div>
+        <div class="box-q">?</div>
+      </div>
+      <div class="box-body">
+        <div class="box-name">Snack Box</div>
+        <div class="box-price">149 MDL <span>— 399 MDL</span></div>
+        <p class="box-hint">Delicii gourmet din întreaga lume — dulciuri rare și snack-uri internaționale.</p>
+        <div class="box-pills">
+          <span class="pill r">Common → Legend</span>
+          <span class="pill">3 niveluri</span>
+        </div>
+        <div class="box-click-hint">Vezi conținut</div>
+      </div>
+    </a>
+
+    <!-- Sport Box -->
+    <a class="box-card cat-obj-card tier-premium reveal" href="box-sport.html" style="transition-delay:.28s">
+      <div class="box-img">
+        <div class="cat-big-emoji">🏋️</div>
+        <div class="box-img-overlay"></div>
+        <div class="box-badge">Sport</div>
+        <div class="box-q">?</div>
+      </div>
+      <div class="box-body">
+        <div class="box-name">Sport Box</div>
+        <div class="box-price">199 MDL <span>— 549 MDL</span></div>
+        <p class="box-hint">Echipament și accesorii fitness pentru atingerea obiectivelor sportive.</p>
+        <div class="box-pills">
+          <span class="pill r">Common → Legend</span>
+          <span class="pill">3 niveluri</span>
+        </div>
+        <div class="box-click-hint">Vezi conținut</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- Prices table -->
+<section class="section" style="padding-top:0">
+  <div class="section-head reveal">
+    <span class="sec-label">Prețuri complete</span>
+    <h2 class="sec-title">Toate <em>categoriile</em></h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="table-wrap reveal">
+    <table>
+      <thead>
+        <tr>
+          <th>Categorie</th>
+          <th>Basic</th>
+          <th>Standard</th>
+          <th>Premium</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🎮 Gaming</td>
+          <td><span class="price-tag">199 MDL</span></td>
+          <td><span class="price-tag">299 MDL</span></td>
+          <td><span class="price-tag">499 MDL</span></td>
+        </tr>
+        <tr>
+          <td>💄 Beauty</td>
+          <td><span class="price-tag">199 MDL</span></td>
+          <td><span class="price-tag">299 MDL</span></td>
+          <td><span class="price-tag">499 MDL</span></td>
+        </tr>
+        <tr>
+          <td>📱 Gadget</td>
+          <td><span class="price-tag">199 MDL</span></td>
+          <td><span class="price-tag">299 MDL</span></td>
+          <td><span class="price-tag">499 MDL</span></td>
+        </tr>
+        <tr>
+          <td>🍫 Snack</td>
+          <td><span class="price-tag">149 MDL</span></td>
+          <td><span class="price-tag">249 MDL</span></td>
+          <td><span class="price-tag">399 MDL</span></td>
+        </tr>
+        <tr>
+          <td>🏋️ Sport</td>
+          <td><span class="price-tag">199 MDL</span></td>
+          <td><span class="price-tag">329 MDL</span></td>
+          <td><span class="price-tag">549 MDL</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ORDER FORM -->
+<section class="section" id="comanda" style="padding-top:0">
+  <div class="section-head reveal">
+    <span class="sec-label">Plasează comanda</span>
+    <h2 class="sec-title">Formular <em>comandă</em></h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="form-wrap reveal">
+    <div class="form-group">
+      <label class="form-label" for="f-nume">Nume complet</label>
+      <input class="form-input" type="text" id="f-nume" placeholder="Ion Popescu" autocomplete="name">
+      <div class="field-error" id="err-nume">Introduceți numele complet (minim 2 cuvinte).</div>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="f-email">Adresă email</label>
+      <input class="form-input" type="email" id="f-email" placeholder="ion@exemplu.md" autocomplete="email">
+      <div class="field-error" id="err-email">Introduceți un email valid.</div>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="f-tel">Telefon</label>
+      <input class="form-input" type="tel" id="f-tel" placeholder="+373 60 000 000" autocomplete="tel">
+      <div class="field-error" id="err-tel">Introduceți un număr de telefon valid.</div>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="f-adresa">Adresă livrare</label>
+      <input class="form-input" type="text" id="f-adresa" placeholder="str. Exemplu, nr. 1, Chișinău" autocomplete="street-address">
+      <div class="field-error" id="err-adresa">Introduceți adresa de livrare.</div>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="f-cat">Categorie</label>
+      <select class="form-select" id="f-cat">
+        <option value="">— Alege categoria —</option>
+        <option value="gaming">🎮 Gaming</option>
+        <option value="beauty">💄 Beauty</option>
+        <option value="gadget">📱 Gadget</option>
+        <option value="snack">🍫 Snack</option>
+        <option value="sport">🏋️ Sport / Fitness</option>
+      </select>
+      <div class="field-error" id="err-cat">Alegeți o categorie.</div>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="f-nivel">Nivel cutie</label>
+      <select class="form-select" id="f-nivel">
+        <option value="">— Alege nivelul —</option>
+        <option value="basic">Basic</option>
+        <option value="standard">Standard</option>
+        <option value="premium">Premium</option>
+      </select>
+      <div class="field-error" id="err-nivel">Alegeți nivelul cutiei.</div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Metodă de plată</label>
+      <div class="radio-group">
+        <label class="radio-label"><input type="radio" name="plata" value="card"> Card bancar</label>
+        <label class="radio-label"><input type="radio" name="plata" value="ramburs"> Ramburs la livrare</label>
+      </div>
+      <div class="field-error" id="err-plata">Alegeți metoda de plată.</div>
+    </div>
+    <div class="btn-row" style="margin-top:12px">
+      <button class="btn-main" id="submitBtn" type="button">Trimite comanda →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-brand">Mystery Box</span>
+  <span class="footer-note">© 2025 — Toate drepturile rezervate</span>
+</footer>
+
+<!-- SUCCESS OVERLAY -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-box">
+    <div class="success-icon">📦</div>
+    <h3>Comandă <em>trimisă!</em></h3>
+    <p>Mulțumim, <span class="success-name" id="successName">—</span>! Comanda ta a fost înregistrată cu succes. Vei primi un email de confirmare în scurt timp.</p>
+    <a class="btn-main" href="acasa.html">Înapoi acasă</a>
+  </div>
+</div>
+
+<script>
+// ── Reveal on scroll
+const obs = new IntersectionObserver(
+  e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }),
+  { threshold: .1 }
+);
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ── Tier card image switcher (fix #5)
+const heroImg = document.getElementById('heroMainImg');
+document.getElementById('tierCards').addEventListener('click', e => {
+  const card = e.target.closest('.tier-card');
+  if (!card) return;
+
+  // Update selected state
+  document.querySelectorAll('.tier-card').forEach(c => {
+    c.classList.remove('selected');
+    // Keep featured class on standard card
+    if (c.dataset.tier !== 'standard') c.classList.remove('featured');
+  });
+  card.classList.add('selected');
+  if (card.dataset.tier === 'standard') card.classList.add('featured');
+
+  // Fade image
+  const newSrc = card.dataset.img;
+  if (newSrc && heroImg.src !== newSrc) {
+    heroImg.classList.add('fade-out');
+    setTimeout(() => {
+      heroImg.src = newSrc;
+      heroImg.classList.remove('fade-out');
+    }, 350);
+  }
+});
+
+// ── Form validation
+const FIELDS = [
+  { id: 'f-nume',   errId: 'err-nume',   validate: v => v.trim().split(/\s+/).length >= 2 && v.trim().length >= 4 },
+  { id: 'f-email',  errId: 'err-email',  validate: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) },
+  { id: 'f-tel',    errId: 'err-tel',    validate: v => v.trim().replace(/\D/g,'').length >= 7 },
+  { id: 'f-adresa', errId: 'err-adresa', validate: v => v.trim().length >= 6 },
+  { id: 'f-cat',    errId: 'err-cat',    validate: v => v !== '' },
+  { id: 'f-nivel',  errId: 'err-nivel',  validate: v => v !== '' },
+];
+
+function setState(el, valid) {
+  el.classList.toggle('error', !valid);
+  el.classList.toggle('valid', valid);
+}
+
+FIELDS.forEach(({ id, errId, validate }) => {
+  const el = document.getElementById(id);
+  const err = document.getElementById(errId);
+  el.addEventListener('blur', () => {
+    const ok = validate(el.value);
+    setState(el, ok);
+    err.classList.toggle('show', !ok);
+  });
+  el.addEventListener('input', () => {
+    if (el.classList.contains('error')) {
+      const ok = validate(el.value);
+      setState(el, ok);
+      err.classList.toggle('show', !ok);
+    }
+  });
+});
+
+document.getElementById('submitBtn').addEventListener('click', () => {
+  let allOk = true;
+
+  FIELDS.forEach(({ id, errId, validate }) => {
+    const el = document.getElementById(id);
+    const err = document.getElementById(errId);
+    const ok = validate(el.value);
+    setState(el, ok);
+    err.classList.toggle('show', !ok);
+    if (!ok) allOk = false;
+  });
+
+  const radioChecked = document.querySelector('input[name="plata"]:checked');
+  document.getElementById('err-plata').classList.toggle('show', !radioChecked);
+  if (!radioChecked) allOk = false;
+
+  if (allOk) {
+    const firstName = document.getElementById('f-nume').value.trim().split(/\s+/)[0];
+    document.getElementById('successName').textContent = firstName;
+    document.getElementById('successOverlay').classList.add('show');
+  } else {
+    const firstErr = document.querySelector('.form-input.error, .form-select.error');
+    if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+});
+
+document.getElementById('successOverlay').addEventListener('click', function(e) {
+  if (e.target === this) this.classList.remove('show');
+});
+</script>
+</body>
+</html>
