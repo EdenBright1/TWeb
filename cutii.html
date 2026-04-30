@@ -10,7 +10,6 @@
     .hero-img-main img { transition: opacity .4s ease, transform 6s ease; }
     .hero-img-main img.fade-out { opacity: 0 !important; }
 
-    /* Tier card clickable + active state */
     .tier-card { cursor: pointer; }
     .tier-card.selected { border-color: rgba(255,92,26,.6) !important; background: rgba(255,92,26,.12) !important; }
     .tier-card.selected .tier-num { color: var(--ember) !important; }
@@ -42,6 +41,7 @@
     <a href="cutii.html" class="active">Cutii</a>
     <a href="despre.html">Despre</a>
     <a href="intrebari.html">FAQ</a>
+    <a href="tracking.php" class="nav-track">&#x1F4E6; Tracking</a>
   </nav>
 </header>
 
@@ -65,34 +65,36 @@
 
   <div class="hero-visual" id="heroVisual">
     <div class="hero-img-main">
-      <img id="heroMainImg" src="photo_2.jpg" alt="Mystery Box">
+      <img id="heroMainImg" src="photos/photo_2.jpg" alt="Mystery Box">
     </div>
     <div class="hero-overlay"></div>
-    <!-- Tier cards — clicking changes image and info -->
+
     <div class="tier-cards" id="tierCards">
-      <div class="tier-card selected" data-tier="basic" data-img="photo_2.jpg">
+      <div class="tier-card selected" data-tier="basic" data-img="photos/photo_2.jpg">
         <div class="tier-num">I</div>
         <div class="tier-info">
           <div class="tier-label">Basic</div>
           <div class="tier-name">Basic Box</div>
         </div>
-        <div class="tier-price">149 MDL</div>
+        <div class="tier-price">268 MDL</div>
       </div>
-      <div class="tier-card featured" data-tier="standard" data-img="photo_3.jpg">
+
+      <div class="tier-card featured" data-tier="standard" data-img="photos/photo_3.jpg">
         <div class="tier-num">II</div>
         <div class="tier-info">
           <div class="tier-label">★ Popular</div>
           <div class="tier-name">Standard Box</div>
         </div>
-        <div class="tier-price">299 MDL</div>
+        <div class="tier-price">748 MDL</div>
       </div>
-      <div class="tier-card" data-tier="premium" data-img="photo_4.jpg">
+
+      <div class="tier-card" data-tier="premium" data-img="photos/photo_4.jpg">
         <div class="tier-num">III</div>
         <div class="tier-info">
           <div class="tier-label">Premium</div>
           <div class="tier-name">Premium Box</div>
         </div>
-        <div class="tier-price">499 MDL</div>
+        <div class="tier-price">1248 MDL</div>
       </div>
     </div>
   </div>
@@ -133,7 +135,6 @@
   </div>
 
   <div class="box-grid">
-    <!-- Gaming Box -->
     <a class="box-card cat-obj-card tier-standard reveal" href="box-gaming.html">
       <div class="box-img">
         <div class="cat-big-emoji">🎮</div>
@@ -143,7 +144,7 @@
       </div>
       <div class="box-body">
         <div class="box-name">Gaming Box</div>
-        <div class="box-price">199 MDL <span>— 499 MDL</span></div>
+        <div class="box-price">358 MDL <span>— 1248 MDL</span></div>
         <p class="box-hint">Accesorii gaming, merchandise și colecții exclusive din lumea jocurilor video.</p>
         <div class="box-pills">
           <span class="pill r">Common → Epic</span>
@@ -153,7 +154,6 @@
       </div>
     </a>
 
-    <!-- Beauty Box -->
     <a class="box-card cat-obj-card tier-standard reveal" href="box-beauty.html" style="transition-delay:.07s">
       <div class="box-img">
         <div class="cat-big-emoji">💄</div>
@@ -163,7 +163,7 @@
       </div>
       <div class="box-body">
         <div class="box-name">Beauty Box</div>
-        <div class="box-price">199 MDL <span>— 499 MDL</span></div>
+        <div class="box-price">358 MDL <span>— 1248 MDL</span></div>
         <p class="box-hint">Cosmetice premium, skincare și parfumuri din branduri internaționale.</p>
         <div class="box-pills">
           <span class="pill r">Common → Legend</span>
@@ -173,7 +173,6 @@
       </div>
     </a>
 
-    <!-- Gadget Box -->
     <a class="box-card cat-obj-card tier-standard reveal" href="box-gadget.html" style="transition-delay:.14s">
       <div class="box-img">
         <div class="cat-big-emoji">📱</div>
@@ -183,7 +182,7 @@
       </div>
       <div class="box-body">
         <div class="box-name">Gadget Box</div>
-        <div class="box-price">199 MDL <span>— 499 MDL</span></div>
+        <div class="box-price">358 MDL <span>— 1248 MDL</span></div>
         <p class="box-hint">Tech și gadgeturi smart de ultimă generație pentru viața de zi cu zi.</p>
         <div class="box-pills">
           <span class="pill r">Common → Legend</span>
@@ -193,7 +192,6 @@
       </div>
     </a>
 
-    <!-- Snack Box -->
     <a class="box-card cat-obj-card tier-basic reveal" href="box-snack.html" style="transition-delay:.21s">
       <div class="box-img">
         <div class="cat-big-emoji">🍫</div>
@@ -203,7 +201,7 @@
       </div>
       <div class="box-body">
         <div class="box-name">Snack Box</div>
-        <div class="box-price">149 MDL <span>— 399 MDL</span></div>
+        <div class="box-price">268 MDL <span>— 998 MDL</span></div>
         <p class="box-hint">Delicii gourmet din întreaga lume — dulciuri rare și snack-uri internaționale.</p>
         <div class="box-pills">
           <span class="pill r">Common → Legend</span>
@@ -213,7 +211,6 @@
       </div>
     </a>
 
-    <!-- Sport Box -->
     <a class="box-card cat-obj-card tier-premium reveal" href="box-sport.html" style="transition-delay:.28s">
       <div class="box-img">
         <div class="cat-big-emoji">🏋️</div>
@@ -235,13 +232,13 @@
   </div>
 </section>
 
-<!-- Prices table -->
 <section class="section" style="padding-top:0">
   <div class="section-head reveal">
     <span class="sec-label">Prețuri complete</span>
     <h2 class="sec-title">Toate <em>categoriile</em></h2>
     <div class="sec-line"></div>
   </div>
+
   <div class="table-wrap reveal">
     <table>
       <thead>
@@ -255,40 +252,39 @@
       <tbody>
         <tr>
           <td>🎮 Gaming</td>
-          <td><span class="price-tag">199 MDL</span></td>
-          <td><span class="price-tag">299 MDL</span></td>
-          <td><span class="price-tag">499 MDL</span></td>
+          <td><span class="price-tag">358 MDL</span></td>
+          <td><span class="price-tag">748 MDL</span></td>
+          <td><span class="price-tag">1248 MDL</span></td>
         </tr>
         <tr>
           <td>💄 Beauty</td>
-          <td><span class="price-tag">199 MDL</span></td>
-          <td><span class="price-tag">299 MDL</span></td>
-          <td><span class="price-tag">499 MDL</span></td>
+          <td><span class="price-tag">358 MDL</span></td>
+          <td><span class="price-tag">748 MDL</span></td>
+          <td><span class="price-tag">1248 MDL</span></td>
         </tr>
         <tr>
           <td>📱 Gadget</td>
-          <td><span class="price-tag">199 MDL</span></td>
-          <td><span class="price-tag">299 MDL</span></td>
-          <td><span class="price-tag">499 MDL</span></td>
+          <td><span class="price-tag">358 MDL</span></td>
+          <td><span class="price-tag">748 MDL</span></td>
+          <td><span class="price-tag">1248 MDL</span></td>
         </tr>
         <tr>
           <td>🍫 Snack</td>
-          <td><span class="price-tag">149 MDL</span></td>
-          <td><span class="price-tag">249 MDL</span></td>
-          <td><span class="price-tag">399 MDL</span></td>
+          <td><span class="price-tag">268 MDL</span></td>
+          <td><span class="price-tag">623 MDL</span></td>
+          <td><span class="price-tag">998 MDL</span></td>
         </tr>
         <tr>
           <td>🏋️ Sport</td>
-          <td><span class="price-tag">199 MDL</span></td>
-          <td><span class="price-tag">329 MDL</span></td>
-          <td><span class="price-tag">549 MDL</span></td>
+          <td><span class="price-tag">358 MDL</span></td>
+          <td><span class="price-tag">823 MDL</span></td>
+          <td><span class="price-tag">1373 MDL</span></td>
         </tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<!-- ORDER FORM -->
 <section class="section" id="comanda" style="padding-top:0">
   <div class="section-head reveal">
     <span class="sec-label">Plasează comanda</span>
@@ -302,21 +298,25 @@
       <input class="form-input" type="text" id="f-nume" placeholder="Ion Popescu" autocomplete="name">
       <div class="field-error" id="err-nume">Introduceți numele complet (minim 2 cuvinte).</div>
     </div>
+
     <div class="form-group">
       <label class="form-label" for="f-email">Adresă email</label>
       <input class="form-input" type="email" id="f-email" placeholder="ion@exemplu.md" autocomplete="email">
       <div class="field-error" id="err-email">Introduceți un email valid.</div>
     </div>
+
     <div class="form-group">
       <label class="form-label" for="f-tel">Telefon</label>
       <input class="form-input" type="tel" id="f-tel" placeholder="+373 60 000 000" autocomplete="tel">
       <div class="field-error" id="err-tel">Introduceți un număr de telefon valid.</div>
     </div>
+
     <div class="form-group">
       <label class="form-label" for="f-adresa">Adresă livrare</label>
       <input class="form-input" type="text" id="f-adresa" placeholder="str. Exemplu, nr. 1, Chișinău" autocomplete="street-address">
       <div class="field-error" id="err-adresa">Introduceți adresa de livrare.</div>
     </div>
+
     <div class="form-group">
       <label class="form-label" for="f-cat">Categorie</label>
       <select class="form-select" id="f-cat">
@@ -329,6 +329,7 @@
       </select>
       <div class="field-error" id="err-cat">Alegeți o categorie.</div>
     </div>
+
     <div class="form-group">
       <label class="form-label" for="f-nivel">Nivel cutie</label>
       <select class="form-select" id="f-nivel">
@@ -339,6 +340,7 @@
       </select>
       <div class="field-error" id="err-nivel">Alegeți nivelul cutiei.</div>
     </div>
+
     <div class="form-group">
       <label class="form-label">Metodă de plată</label>
       <div class="radio-group">
@@ -347,51 +349,46 @@
       </div>
       <div class="field-error" id="err-plata">Alegeți metoda de plată.</div>
     </div>
+
     <div class="btn-row" style="margin-top:12px">
       <button class="btn-main" id="submitBtn" type="button">Trimite comanda →</button>
     </div>
   </div>
 </section>
 
-<footer>
-  <span class="footer-brand">Mystery Box</span>
-  <span class="footer-note">© 2025 — Toate drepturile rezervate</span>
-</footer>
 
-<!-- SUCCESS OVERLAY -->
+
 <div class="success-overlay" id="successOverlay">
   <div class="success-box">
     <div class="success-icon">📦</div>
     <h3>Comandă <em>trimisă!</em></h3>
-    <p>Mulțumim, <span class="success-name" id="successName">—</span>! Comanda ta a fost înregistrată cu succes. Vei primi un email de confirmare în scurt timp.</p>
+    <p>Mulțumim, <span class="success-name" id="successName">—</span>! Comanda ta a fost înregistrată cu succes.</p>
+    <p style="font-size:.78rem;color:var(--muted);margin-top:8px">ID comandă: <strong style="color:var(--ember)" id="successOrderId">—</strong></p>
     <a class="btn-main" href="acasa.html">Înapoi acasă</a>
   </div>
 </div>
 
 <script>
-// ── Reveal on scroll
 const obs = new IntersectionObserver(
-  e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }),
+  e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }),
   { threshold: .1 }
 );
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// ── Tier card image switcher (fix #5)
 const heroImg = document.getElementById('heroMainImg');
+
 document.getElementById('tierCards').addEventListener('click', e => {
   const card = e.target.closest('.tier-card');
   if (!card) return;
 
-  // Update selected state
   document.querySelectorAll('.tier-card').forEach(c => {
     c.classList.remove('selected');
-    // Keep featured class on standard card
     if (c.dataset.tier !== 'standard') c.classList.remove('featured');
   });
+
   card.classList.add('selected');
   if (card.dataset.tier === 'standard') card.classList.add('featured');
 
-  // Fade image
   const newSrc = card.dataset.img;
   if (newSrc && heroImg.src !== newSrc) {
     heroImg.classList.add('fade-out');
@@ -402,14 +399,13 @@ document.getElementById('tierCards').addEventListener('click', e => {
   }
 });
 
-// ── Form validation
 const FIELDS = [
   { id: 'f-nume',   errId: 'err-nume',   validate: v => v.trim().split(/\s+/).length >= 2 && v.trim().length >= 4 },
   { id: 'f-email',  errId: 'err-email',  validate: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) },
-  { id: 'f-tel',    errId: 'err-tel',    validate: v => v.trim().replace(/\D/g,'').length >= 7 },
+  { id: 'f-tel',    errId: 'err-tel',    validate: v => v.trim().replace(/\D/g, '').length >= 7 },
   { id: 'f-adresa', errId: 'err-adresa', validate: v => v.trim().length >= 6 },
   { id: 'f-cat',    errId: 'err-cat',    validate: v => v !== '' },
-  { id: 'f-nivel',  errId: 'err-nivel',  validate: v => v !== '' },
+  { id: 'f-nivel',  errId: 'err-nivel',  validate: v => v !== '' }
 ];
 
 function setState(el, valid) {
@@ -420,11 +416,13 @@ function setState(el, valid) {
 FIELDS.forEach(({ id, errId, validate }) => {
   const el = document.getElementById(id);
   const err = document.getElementById(errId);
+
   el.addEventListener('blur', () => {
     const ok = validate(el.value);
     setState(el, ok);
     err.classList.toggle('show', !ok);
   });
+
   el.addEventListener('input', () => {
     if (el.classList.contains('error')) {
       const ok = validate(el.value);
@@ -441,19 +439,60 @@ document.getElementById('submitBtn').addEventListener('click', () => {
     const el = document.getElementById(id);
     const err = document.getElementById(errId);
     const ok = validate(el.value);
+
     setState(el, ok);
     err.classList.toggle('show', !ok);
+
     if (!ok) allOk = false;
   });
 
   const radioChecked = document.querySelector('input[name="plata"]:checked');
   document.getElementById('err-plata').classList.toggle('show', !radioChecked);
+
   if (!radioChecked) allOk = false;
 
   if (allOk) {
-    const firstName = document.getElementById('f-nume').value.trim().split(/\s+/)[0];
-    document.getElementById('successName').textContent = firstName;
-    document.getElementById('successOverlay').classList.add('show');
+    // ── AJAX: trimite comanda la PHP via fetch
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Se trimite…';
+    btn.disabled = true;
+
+    const payload = {
+      nume:      document.getElementById('f-nume').value.trim(),
+      email:     document.getElementById('f-email').value.trim(),
+      tel:       document.getElementById('f-tel').value.trim(),
+      adresa:    document.getElementById('f-adresa').value.trim(),
+      categorie: document.getElementById('f-cat').value,
+      nivel:     document.getElementById('f-nivel').value,
+      plata:     document.querySelector('input[name="plata"]:checked').value,
+    };
+
+    fetch('submit_order.php', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(payload),
+    })
+    .then(r => r.json())
+    .then(resp => {
+      btn.textContent = 'Trimite comanda →';
+      btn.disabled    = false;
+
+      if (resp.success) {
+        // Arata overlay cu ID comanda
+        const firstName = payload.nume.split(/\s+/)[0];
+        document.getElementById('successName').textContent = firstName;
+        document.getElementById('successOrderId').textContent = resp.orderId;
+        document.getElementById('successOverlay').classList.add('show');
+      } else {
+        alert('Eroare: ' + (resp.error || 'Ceva nu a mers. Încearcă din nou.'));
+      }
+    })
+    .catch(() => {
+      btn.textContent = 'Trimite comanda →';
+      btn.disabled    = false;
+      alert('Eroare de conexiune. Verifică dacă serverul PHP rulează.');
+    });
+
   } else {
     const firstErr = document.querySelector('.form-input.error, .form-select.error');
     if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -464,5 +503,6 @@ document.getElementById('successOverlay').addEventListener('click', function(e) 
   if (e.target === this) this.classList.remove('show');
 });
 </script>
+
 </body>
 </html>

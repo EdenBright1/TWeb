@@ -288,3 +288,9 @@ footer { border-top:1px solid var(--border); padding:24px clamp(20px,5vw,52px); 
   .items-grid { grid-template-columns:1fr; }
   .cat-bar { grid-template-columns:repeat(2,1fr); }
 }
+
+.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
